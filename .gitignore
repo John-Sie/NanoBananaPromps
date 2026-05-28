@@ -1,0 +1,48 @@
+# Env & Secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+.env.production
+
+# Credentials and private keys
+*.pem
+*.key
+*.pub
+*.pfx
+*.p12
+
+# Dependencies
+node_modules/
+jspm_packages/
+web_modules/
+
+# OS/System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs and editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.gemini/
+.copilot/
+
+# Backup and temp files
+*.bak
+*~
+*.log
+*.tmp
+tmp/
+temp/
