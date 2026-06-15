@@ -19,6 +19,16 @@ if [[ "${1:-}" == "-s" && -n "${2:-}" ]]; then
 fi
 SCOPE_ARGS=(-s "$SCOPE")
 
+# ---- 自动读取同目录下的 .mcp.env (存放 API Key, 已被 git 忽略) ----------------
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [[ -f "$SCRIPT_DIR/.mcp.env" ]]; then
+  echo "🔑 读取 $SCRIPT_DIR/.mcp.env"
+  set -a
+  # shellcheck disable=SC1091
+  source "$SCRIPT_DIR/.mcp.env"
+  set +a
+fi
+
 # ---- 前置检查 ----------------------------------------------------------------
 if ! command -v claude >/dev/null 2>&1; then
   echo "❌ 找不到 claude CLI，请先安装 Claude Code。" >&2
